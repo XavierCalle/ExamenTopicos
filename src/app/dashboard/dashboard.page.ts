@@ -88,7 +88,7 @@ export class DashboardPage implements OnInit {
             isEdit: false,
             Name: e.payload.doc.data()['Name'],
             Message:crypto.AES.decrypt(e.payload.doc.data()['Message'], this.passEnc).toString(crypto.enc.Utf8),
-            Image: e.payload.doc.data()['Image'],
+            Image: crypto.AES.decrypt(e.payload.doc.data()['Image'], this.passEnc).toString(crypto.enc.Utf8),
           };
         }
         return {
@@ -109,6 +109,8 @@ export class DashboardPage implements OnInit {
     this.messageData.CreateDate = new Date();
     
     this.messageData.Message = crypto.AES.encrypt(this.messageData.Message, this.passEnc).toString();
+    
+
     console.log(this.messageData.Message + ' Encriptado');
 
     this.firebaseService.create_message(this.messageData)
@@ -168,10 +170,11 @@ export class DashboardPage implements OnInit {
       
       finalize(() => {
         // Get uploaded file storage path
+        this.passEnc = '123123';
         this.UploadedFileURL = fileRef.getDownloadURL();
         
         this.UploadedFileURL.subscribe(resp=>{
-          this.messageData.Image = resp;
+          this.messageData.Image = crypto.AES.encrypt(resp, this.passEnc).toString();
         },error=>{
           console.error(error);
         })
