@@ -1,28 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Dashboard</ion-title>
+    <ion-title>Usuario: {{messageData.Name}} </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-
-  <ion-grid>
-    <ion-row>
-      <ion-col text-center>
-        Welcome to Dashboard!
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col text-center>
-        Your Registered EmailID : {{userEmail}}
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-
+<ion-content #content padding id="container">
+  <ion-card *ngFor="let messageData of messageList" >
+    <ion-card-header>
+      {{messageData.Name}} dice: 
+    </ion-card-header>
+    <ion-card-content>
+      {{messageData.Message}}
+      <ion-icon name="arrow-redo-outline"></ion-icon>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
-<ion-footer (click)="logout()">
-  <ion-toolbar color="secondary">
-    <ion-title>Log out</ion-title>
+
+<ion-footer id="final-scroll">
+  <ion-toolbar>
+    <ion-input placeholder="Mensaje..."  [(ngModel)]="messageData.Message"></ion-input>
+    <ion-buttons slot="end" >
+      <ion-button (click)="CreateRecord()">
+        <ion-icon name="send"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="secondary" (click)="logout()">
+    <ion-title>Cerrar Sesión</ion-title>
   </ion-toolbar>
 </ion-footer>
