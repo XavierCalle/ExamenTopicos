@@ -20,7 +20,7 @@ export class FirebaseService {
   }
 
   read_messages() {
-    return this.firestore.collection(this.collectionName).snapshotChanges();
+    return this.firestore.collection(this.collectionName, ref => ref.orderBy('CreateDate')).snapshotChanges();
   }
 
   update_message(recordID, record) {
