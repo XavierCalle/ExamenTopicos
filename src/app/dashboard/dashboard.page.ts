@@ -4,6 +4,7 @@ import { NavController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authentication.service';
 import { FirebaseService } from '../services/firebase.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import * as crypto from 'crypto-js'; 
 
 interface messageData {
   Name: string;
@@ -23,6 +24,9 @@ export class DashboardPage implements OnInit {
   messageForm: FormGroup;
 
   userEmail: string;
+  passEnc : string;
+  
+
 
   constructor(
     private navCtrl: NavController,
@@ -33,6 +37,7 @@ export class DashboardPage implements OnInit {
   }
 
   ngOnInit() {
+    this.passEnc = '123123';
     this.authService.userDetails().subscribe(res => {
       console.log('res', res);
       if (res !== null) {
@@ -51,7 +56,7 @@ export class DashboardPage implements OnInit {
           id: e.payload.doc.id,
           isEdit: false,
           Name: e.payload.doc.data()['Name'],
-          Message: e.payload.doc.data()['Message'],
+          Message:crypto.AES.decrypt(e.payload.doc.data()['Message'], this.passEnc).toString(crypto.enc.Utf8) ,
         };
       })
 
@@ -60,7 +65,12 @@ export class DashboardPage implements OnInit {
   }
 
   CreateRecord() {
+    this.passEnc = '123123';
     console.log("Que se va a enviar", this.messageData)
+    this.messageData.Message = crypto.AES.encrypt(this.messageData.Message, this.passEnc).toString();
+    console.log(this.messageData.Message + ' Encriptado');
+
+    
     this.firebaseService.create_message(this.messageData)
       .then(resp => {
         this.messageData.Message = null;
