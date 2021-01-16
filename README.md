@@ -17,5 +17,7 @@ la url de la imagen o los mensajes.
 
 ### [Vídeo](https://youtu.be/DuavTMMqUX0)
 
+### [APK](https://www.dropbox.com/s/390og6p5mkwn6uu/app-debug.apk?dl=0)
+
 ## Autor
 * **Xavier Calle** 
