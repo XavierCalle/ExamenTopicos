@@ -1,7 +1,8 @@
-# Login Ionic with Google
+# Examen Primer Bimestre de Tópicos Especiales
 
-Login con google realizado con Ionic y Angular.
-Permite la autenticación de usuario.
+Aplicación de chat con encriptación de mensajes.
+Autenticación de usuarios.
+Chat con Imágenes.
 
 ### Pre-requisitos 
 
@@ -20,8 +21,6 @@ NodeJS 		: v14.15.1
 npm    		: 6.14.9
 ```
 
-## Autores 
-
+## Autor
 
 * **Xavier Calle** 
-* **Sebastián Morales** 
