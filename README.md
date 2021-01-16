@@ -14,7 +14,9 @@ _Firebase_
 _Crypto_.
 Para la parte de encriptar datos se utilizó crypto que permite encriptar datos a partir de una llave o clave. La misma llave nos ayuda a desencriptar los datos como 
 la url de la imagen o los mensajes.
-[###Vídeo](https://youtu.be/DuavTMMqUX0)
+
+###Vídeo
+[Enlace](https://youtu.be/DuavTMMqUX0)
 
 ## Autor
 * **Xavier Calle** 
