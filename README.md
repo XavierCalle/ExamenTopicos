@@ -8,7 +8,7 @@ Chat con Imágenes.
 _Firebase_
 * Firestore
 * Storage
-* Autenticación
+* Autenticación: Se utiliza los métodos de autenticación nativos de _Firebase_
 
 ### Encriptación
 _Crypto_.
