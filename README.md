@@ -6,8 +6,8 @@ Chat con Imágenes.
 
 ### Base de datos
 _Firebase_
-* Firestore
-* Storage
+* Firestore: Aquí se guardan los datos encriptados.
+* Storage: Aquí se guardan las imágenes
 * Autenticación: Se utiliza los métodos de autenticación nativos de _Firebase_
 
 ### Encriptación
