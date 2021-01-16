@@ -10,5 +10,10 @@ _Firebase_
 * Storage
 * Autenticación
 
+### Encriptación
+_Crypto_
+Para la parte de encriptar datos se utilizó crypto que permite encriptar datos a partir de una llave o clave. La misma llave nos ayuda a desencriptar los datos como 
+la url de la imagen o los mensajes.
+
 ## Autor
 * **Xavier Calle** 
